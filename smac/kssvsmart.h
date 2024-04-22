@@ -21,7 +21,6 @@ enum {
 void ssv6xxx_process_si_event(struct ssv_softc *sc, struct sk_buff *skb);
 int ssv6xxx_send_si_cmd(u32 smart_icomm_cmd);
 
-inline void set_si_status(u32 st);
 int get_si_status(char *input);
 int get_si_ssid(char *input);
 int get_si_pass(char *input);

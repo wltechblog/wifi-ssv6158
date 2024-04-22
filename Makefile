@@ -82,7 +82,7 @@ KERN_SRCS += $(KMODULE_NAME)-generic-wlan.c
 $(KMODULE_NAME)-y += $(KERN_SRCS_S:.S=.o)
 $(KMODULE_NAME)-y += $(KERN_SRCS:.c=.o)
 
-obj-$(CONFIG_SSV6158) += $(KMODULE_NAME).o
+obj-m += $(KMODULE_NAME).o
 
 export CONFIG_SSV6158=m
 

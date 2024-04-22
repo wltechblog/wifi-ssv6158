@@ -23,15 +23,16 @@ extern unsigned int oob_irq;
 #endif
 
 #include <linux/mmc/host.h>
-#include <linux/sunxi-gpio.h>
-#include <linux/power/aw_pm.h>
+//#include <linux/sunxi-gpio.h>
+//#include <linux/power/aw_pm.h>
 
+/*
 extern void sunxi_mmc_rescan_card(unsigned ids);
 extern void sunxi_wlan_set_power(bool on);
 extern int sunxi_wlan_get_bus_index(void);
 extern int sunxi_wlan_get_oob_irq(void);
 extern int sunxi_wlan_get_oob_irq_flags(void);
-
+*/
 extern int ssvdevice_init(void);
 extern void ssvdevice_exit(void);
 
@@ -61,10 +62,10 @@ static int generic_wifi_init_module(void)
     printk("==== Launching Wi-Fi driver! (Powered by Allwiner) ====\n");
     printk("=======================================================\n");
     printk("SSV6158 SDIO WiFi driver (Powered by Allwinner init.\n");
-    sunxi_wlan_set_power(1);
+//    sunxi_wlan_set_power(1);
     //msleep(100);
 
-    wlan_bus_index = sunxi_wlan_get_bus_index();
+/*    wlan_bus_index = sunxi_wlan_get_bus_index();
     if(wlan_bus_index < 0){
         printk("get wifi_sdc_id failed\n");
         return -1;
@@ -72,10 +73,11 @@ static int generic_wifi_init_module(void)
         printk("----- %s sdc_id: %d\n", __FUNCTION__, wlan_bus_index);
         sunxi_mmc_rescan_card(wlan_bus_index);
     }
+
 #ifdef CONFIG_GPIO_WAKEUP
     oob_irq = sunxi_wlan_get_oob_irq();
 #endif
-
+*/
 	return initWlan();
 }
 
@@ -92,13 +94,14 @@ static void generic_wifi_exit_module(void)
     printk("=======================================================\n");
     printk("SSV6158  SDIO WiFi driver (Powered by Allwinner init.\n");
 	exitWlan();
-
+/*
     wlan_bus_index = sunxi_wlan_get_bus_index();
     sunxi_mmc_rescan_card(wlan_bus_index);
 
     //msleep(100);
 
     sunxi_wlan_set_power(0);
+*/
     printk("%s: remove card, power off.\n", __FUNCTION__);
 }
 
