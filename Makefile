@@ -1,9 +1,7 @@
 KMODULE_NAME = ssv6158
 
-KBUILD_TOP := drivers/net/wireless/ssv6158
-ifeq ($(MAKELEVEL),0)
-KBUILD_TOP := .
-endif
+KSRC ?= $(HOME)/firmware/output/build/linux-custom
+KBUILD_TOP ?= $(PWD)
 
 include $(KBUILD_TOP)/$(KMODULE_NAME).cfg
 include $(KBUILD_TOP)/platform-config.mak
